@@ -1,5 +1,5 @@
 # creates a file in the /tmp directory
-file { '~/Documents/school':
+file { '/tmp/school':
   ensure  => 'file',
   mode    => '0744',
   owner   => 'www-data',
