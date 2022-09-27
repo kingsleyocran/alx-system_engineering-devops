@@ -40,8 +40,8 @@ defaults
   timeout http-request 10s
 frontend th3gr00t-tech-frontend
     bind *:80
-    default_backend th3gr00t-tech-backend
-backend th3gr00t-tech-backend
+    default_backend webcodebeast
+backend webcodebeast
     balance roundrobin
     server 28535-web-01 3.236.139.103:80 check
     server 28535-web-02 44.197.108.121:80 check
