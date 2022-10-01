@@ -1,0 +1,23 @@
+global
+        log /dev/log    local0
+	stats socket /run/haproxy/admin.sock mode 660 level admin
+
+defaults
+        log     global
+        mode    http
+        option  httplog
+	timeout connect  10s
+	timeout client  30s
+	timeout server  30s
+
+frontend webcodebeast-tech-frontend
+	bind *:80
+	bind *:443 ssl crt /etc/haproxy/cert/cert.pem
+	http-request redirect scheme https code 301 unless { ssl_fc }
+	http-request set-header X-Forwarded-Proto https
+	default_backend webcodebeast-tech-backend
+
+backend webcodebeast-tech-backend
+	balance roundrobin
+	server 28535-web-01 3.236.139.103:80 check
+    server 28535-web-02 44.197.108.121:80 check
