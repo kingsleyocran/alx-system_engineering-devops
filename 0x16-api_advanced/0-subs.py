@@ -11,11 +11,10 @@ def number_of_subscribers(subreddit):
 
     headers = {'User-Agent': ''}
 
-    r = requests.get(URL , headers=headers)
+    r = requests.get(URL, headers=headers)
     if (r.status_code != 200):
-        return(0)
+        return (0)
     r = r.json()
+    return (r['data']['subscribers'])
 
-    return(r['data']['subscribers'])
-
-#print(number_of_subscribers('redditdev'))
+# print(number_of_subscribers('programming'))
