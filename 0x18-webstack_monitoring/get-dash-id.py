@@ -16,4 +16,4 @@ with ApiClient(configuration) as api_client:
     print(response)
 
 
-# DD_SITE="datadoghq.com" DD_API_KEY="e8c8ce9f907a0b9fef2a6fbbc6be0cde" DD_APP_KEY="e29d7ad76f8249b9f6bea0a134aae8f42047ebd9" python3 "get-dash-id.py"
+# DD_SITE="datadoghq.com" DD_API_KEY="<DD_API_KEY>" DD_APP_KEY="<DD_APP_KEY>" python3 "get-dash-id.py"
